@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "TestConsApp/1.0.0": {
+        "dependencies": {
+          "CarsLib": "1.0.0"
+        },
+        "runtime": {
+          "TestConsApp.dll": {}
+        }
+      },
+      "CarsLib/1.0.0": {
+        "runtime": {
+          "CarsLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TestConsApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CarsLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
