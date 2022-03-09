@@ -1,6 +1,13 @@
-﻿namespace AreaLib.Models;
+﻿using System.Diagnostics;
+
+namespace AreaLib.Models;
 
 public class Circle : IHasArea
 {
-    public float Radius { get; set; }
+    public Circle(float radius)
+    {
+        Debug.Assert(radius > 0);
+        Radius = radius;
+    }
+    public float Radius { get; }
 }

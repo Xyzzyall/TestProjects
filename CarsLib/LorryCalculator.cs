@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using CarsLib.CarTypes;
 
 namespace CarsLib;
@@ -16,6 +17,7 @@ public class LorryCalculator : IAutoCalculator
 
     public bool SetCurrentLoad(double currentLoad)
     {
+        Debug.Assert(currentLoad >= 0);
         if (currentLoad > _lorryAuto.LoadCapacityKg)
             return false;
         CurrentLoad = currentLoad;
@@ -29,6 +31,7 @@ public class LorryCalculator : IAutoCalculator
 
     public double GetRemainTravelDistanceInKm(double fuelRemain)
     {
+        Debug.Assert(fuelRemain > 0);
         return CalculateRemainTravelDistInKm(fuelRemain, _lorryAuto.AvgFuelConsumptionPer100Km, CurrentLoad);
     }
     
@@ -39,6 +42,7 @@ public class LorryCalculator : IAutoCalculator
 
     public double GetHoursToTravel(double km, double fuelRemain)
     {
+        Debug.Assert(km > 0);
         if (GetRemainTravelDistanceInKm(fuelRemain) < km)
             return double.PositiveInfinity;
         return km / _lorryAuto.Speed;

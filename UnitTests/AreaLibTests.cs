@@ -13,10 +13,7 @@ public class AreaLibTests
     [InlineData(2, 2*2*Math.PI)]
     public void CalcArea_ShouldCalcCorrectAreaOfCircle(float radius, double expectedArea)
     {
-        var circle = new Circle
-        {
-            Radius = radius
-        };
+        var circle = new Circle(radius);
 
         var area = circle.CalcArea();
         
@@ -27,10 +24,7 @@ public class AreaLibTests
     [InlineData(3, 4, 5, 6)]
     public void CalcArea_ShouldCalcCorrectAreaOfTriangle(float a, float b, float c, double expectedArea)
     {
-        var triangle = new Triangle
-        {
-            Sides = (a, b, c)
-        };
+        var triangle = new Triangle(a, b, c);
 
         var area = triangle.CalcArea();
         
@@ -43,10 +37,7 @@ public class AreaLibTests
     [InlineData(1, 1.41421356237, 1, true)]
     public void IsRectangular_ShouldBeCorrect(float a, float b, float c, bool expectedResult)
     {
-        var triangle = new Triangle
-        {
-            Sides = (a, b, c)
-        };
+        var triangle = new Triangle(a, b, c);
 
         var res = triangle.IsRectangular();
         

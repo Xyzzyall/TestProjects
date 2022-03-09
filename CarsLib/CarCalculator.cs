@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using CarsLib.CarTypes;
 
 namespace CarsLib;
@@ -16,6 +17,7 @@ public class CarCalculator : IAutoCalculator
 
     public bool SetPassengers(int passengers)
     {
+        Debug.Assert(passengers >= 0);
         if (passengers > _car.MaxPassengers)
             return false;
         Passengers = passengers;
@@ -29,6 +31,7 @@ public class CarCalculator : IAutoCalculator
 
     public double GetRemainTravelDistanceInKm(double fuelRemain)
     {
+        Debug.Assert(fuelRemain > 0);
         return CalculateRemainTravelDistInKm(fuelRemain, _car.AvgFuelConsumptionPer100Km, Passengers);
     }
 
@@ -39,6 +42,7 @@ public class CarCalculator : IAutoCalculator
 
     public double GetHoursToTravel(double km, double fuelRemain)
     {
+        Debug.Assert(km > 0);
         if (GetRemainTravelDistanceInKm(fuelRemain) < km)
             return double.PositiveInfinity;
         return km / _car.Speed;
